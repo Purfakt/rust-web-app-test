@@ -1,0 +1,52 @@
+### Create common expenditure
+POST http://localhost:8000/expenditure HTTP/1.1
+content-type: application/json
+
+{
+    "description": "Description of the expenditure",
+    "category": "Some category",
+    "cost": {
+        "amount": 12.0,
+        "periodicity": "Yearly"
+    },
+    "ownership": "Common"
+}
+
+### Create personal expenditure
+POST http://localhost:8000/expenditure HTTP/1.1
+content-type: application/json
+
+{
+    "description": "Description of the expenditure",
+    "category": "Some category",
+    "cost": {
+        "amount": 12.0,
+        "periodicity": "Monthly"
+    },
+    "ownership": {
+        "Personal": "User name"
+    }
+}
+
+### Get all
+GET http://localhost:8000/expenditure HTTP/1.1
+
+### Get one by id
+GET http://localhost:8000/expenditure/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx HTTP/1.1
+
+### Update one by id
+PATCH http://localhost:8000/expenditure/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx HTTP/1.1
+content-type: application/json
+
+{
+    "description": "Rent",
+    "category": "Fixed costs",
+    "cost": {
+        "amount": 1095.00,
+        "periodicity": "Monthly"
+    },
+    "ownership": "Common"
+}
+
+### Delete one by id
+DELETE http://localhost:8000/expenditure/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx HTTP/1.1
